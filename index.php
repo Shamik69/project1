@@ -32,22 +32,22 @@
         <p>
         <label for="edu">Education</label>
         <select name="edu" id="edu" class="dd">
-            <option value="null">[none]</option>
-            <option value="u10">Persuing 10th</option>
-            <option value="u12">Persuing 12th</option>
-            <option value="uug">Persuing Undergraduate degeree</option>
-            <option value="cug">Completed Undergraduate degeree</option>
-            <option value="upg">Persuing Postgraduate degeree</option>
-            <option value="cpg">Completed Postgraduate degeree</option>
+            <option value="null" id= "null">[none]</option>
+            <option value="u10" id= "u10">Persuing 10th</option>
+            <option value="u12" id= "u12">Persuing 12th</option>
+            <option value="uug" id= "uug">Persuing Undergraduate degeree</option>
+            <option value="cug" id= "cug">Completed Undergraduate degeree</option>
+            <option value="upg" id= "upg">Persuing Postgraduate degeree</option>
+            <option value="cpg" id="cpg">Completed Postgraduate degeree</option>
         </select>
         </p>
         <br><br>
 
         <!--Email-->
-        
+
 
         <!--Submit Button-->
-        <input type="submit" value="Submit" class="lbl">
+        <input type="submit" value="Submit" class="lbl" id= "Submit">
     </form>
 </body>
 </html>
