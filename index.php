@@ -32,14 +32,20 @@
         <label for="edu" class="lbl">Education</label>
         <select name="edu" id="edu" class="bx">
             <option value="null" id= "null">[none]</option>
-            <option value="u10" id= "u10">Persuing 10th</option>
-            <option value="u12" id= "u12">Persuing 12th</option>
-            <option value="uug" id= "uug">Persuing Undergraduate degeree</option>
-            <option value="cug" id= "cug">Completed Undergraduate degeree</option>
-            <option value="upg" id= "upg">Persuing Postgraduate degeree</option>
-            <option value="cpg" id="cpg">Completed Postgraduate degeree</option>
+            <option value="u10" id= "u10">10th</option>
+            <option value="u12" id= "u12">12th</option>
+            <option value="ug" id= "ug">Undergraduate degeree</option>
+            <option value="pg" id= "pg">Postgraduate degeree</option>
         </select>
         <br><br>
+
+        <!--Deegree type-->
+        <input type="checkbox" name="chk0" id="chk0">
+        <label for="chk0" class="lbl">label0</label>
+        <br>
+        <input type="checkbox" name="chk1" id="chk1">
+        <label for="chk1" class="lbl">label0</label>
+        <br>
 
         <!--Email-->
         <label for="mail" class="lbl">Email address: </label>
@@ -49,8 +55,10 @@
         <label for="file" class="lbl">Upload Your Marksheet Here</label><br>
         <input type="file" name="file" id="file"><br><br>
 
+        
+
         <!--Submit Button-->
-        <input type="submit" value="Submit" class="lbl" id= "Submit">
+        <input type="submit" value="Submit" id= "Submit">
     </form>
 </body>
 </html>
