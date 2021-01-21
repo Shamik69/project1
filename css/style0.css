@@ -11,7 +11,7 @@ p{
     font-family: Arial, Helvetica, sans-serif;
 }
 br{
-    padding-bottom: 10%;
+    padding-bottom: 1%;
     padding-left: 5%;
 }
 
@@ -20,8 +20,8 @@ br{
     align-items: center;
     color:#133e3f;
     font-family: consolas, 'Courier New', Courier, monospace;
-    padding-top: 10ch;
-    padding-bottom: 100%;
+    padding-top: 50%;
+    padding-bottom: 50%;
 
 }
 
@@ -33,7 +33,3 @@ br{
 }
 
 
-.btn{
-    width: 10%;
-    float: left;
-}
