@@ -37,7 +37,7 @@
             <option value="ug" id= "ug">Undergraduate degeree</option>
             <option value="pg" id= "pg">Postgraduate degeree</option>
         </select>
-        <br>
+        <br><br>
 
         <!--Deegree type-->
         <input type="checkbox" name="chk0" id="chk0">
@@ -45,7 +45,7 @@
         <br>
         <input type="checkbox" name="chk1" id="chk1">
         <label for="chk1" class="lbl">Completed</label>
-        <br><br>
+        <br><br><br>
 
         <!--Email-->
         <label for="mail" class="lbl">Email address: </label>
