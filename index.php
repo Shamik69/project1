@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style0.css">
 </head>
 <body>
-    <form action="">
+    <form action="" name="test" method="POST">
         <!--name-->
         <p>Name</p>
         <label for="fname" class="lbl">First name:</label>
