@@ -17,21 +17,20 @@
 
         <!--age-->
         <label for="fname" class="lbl">Age (in digits):</label>
-        <input type="text" id="fname" name="fname" class="bx" min="0" max="100" placeholder="Age"><br><br>
+        <input type="text" id="age" name="fname" class="bx" min="0" max="100" placeholder="Age"><br><br>
 
         <!--Gender-->
         <p>Gender</p>
-        <input type="radio" name="male" id="male">
-        <label for="male" class="lbl">Male</label><br><br>
-        <input type="radio" name="Female" id="Female">
-        <label for="Female" class="lbl">Female</label><br><br>
-        <input type="radio" name="Other" id="Other">
+        <input type="radio" name="male" id="male" class="btn">
+        <label for="male" class="lbl">Male</label>
+        <input type="radio" name="Female" id="Female" class="btn">
+        <label for="Female" class="lbl">Female</label>
+        <input type="radio" name="Other" id="Other" class="btn">
         <label for="Other" class="lbl">Other</label><br><br>
 
         <!--Education-->
-        <p>
-        <label for="edu">Education</label>
-        <select name="edu" id="edu" class="dd">
+        <label for="edu" class="lbl">Education</label>
+        <select name="edu" id="edu" class="bx">
             <option value="null" id= "null">[none]</option>
             <option value="u10" id= "u10">Persuing 10th</option>
             <option value="u12" id= "u12">Persuing 12th</option>
@@ -40,11 +39,15 @@
             <option value="upg" id= "upg">Persuing Postgraduate degeree</option>
             <option value="cpg" id="cpg">Completed Postgraduate degeree</option>
         </select>
-        </p>
         <br><br>
 
         <!--Email-->
+        <label for="mail" class="lbl">Email address: </label>
+        <input type="email" name="mail" id="mail" placeholder="E-mail" class="bx"><br><br>
 
+        <!--file input-->
+        <label for="file" class="lbl">Upload Your Marksheet Here</label><br>
+        <input type="file" name="file" id="file"><br><br>
 
         <!--Submit Button-->
         <input type="submit" value="Submit" class="lbl" id= "Submit">
