@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="css/style0.css">
 </head>
 <body>
-    <a href="test-php.php">php exercises</a>
-    <form action="" name="test" method="POST">
+    <form action="" name="test">
         <!--name-->
         <p>Name</p>
         <label for="fname" class="lbl">First name:</label>
@@ -52,14 +51,15 @@
         <label for="mail" class="lbl">Email address: </label>
         <input type="email" name="mail" id="mail" placeholder="E-mail" class="bx"><br><br>
 
-        <!--file input-->
+        <!--file input
         <label for="file" class="lbl">Upload Your Marksheet Here</label><br>
-        <input type="file" name="file" id="file"><br><br>
+        <input type="file" name="file" id="file"><br><br>-->
 
         
 
         <!--Submit Button-->
         <input type="submit" value="Submit" id= "Submit">
     </form>
+    <a href="http://localhost:81/project1/test-php.php">php exercises</a>
 </body>
 </html>
