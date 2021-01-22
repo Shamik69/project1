@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style0.css">
 </head>
 <body>
+    <a href="test-php.php">php exercises</a>
     <form action="" name="test" method="POST">
         <!--name-->
         <p>Name</p>
