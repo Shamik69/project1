@@ -18,11 +18,10 @@ br{
 
 .lbl{
     text-align: center;
-    align-items: center;
     color:#133e3f;
     font-family: consolas, 'Courier New', Courier, monospace;
-    padding-top: 50%;
-    padding-bottom: 50%;
+    height: 5px;
+    pointer-events: none;
 
 }
 
