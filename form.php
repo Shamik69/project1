@@ -13,7 +13,7 @@
                 $s = array_keys($_POST, $result);
                 if($s!=null){
                     foreach($s as $a){
-                        echo "$a: $result <br>";
+                        echo "<b>$a:</b> <i class= cls>$result</i><br>";
                     }
                 }
             }                        
