@@ -11,9 +11,9 @@
         <!--name-->
         <p>Name</p>
         <label for="fname" class="lbl">First name:</label>
-        <input type="text" id="fname" name="fname" class="bx" placeholder="First Name">
+        <input type="text" id="fname" name="f_name" class="bx" placeholder="First Name">
         <br><br><label for="lname" class="lbl">Last name:</label>
-        <input type="text" id="lname" name="lname" class="bx" placeholder="Last Name"><br><br>
+        <input type="text" id="lname" name="l_name" class="bx" placeholder="Last Name"><br><br>
 
         
 
