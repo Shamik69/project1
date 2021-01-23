@@ -11,23 +11,22 @@
         <!--name-->
         <p>Name</p>
         <label for="fname" class="lbl">First name:</label>
-        <input type="text" id="fname" name="fname" class="bx" placeholder="First Name">$fname
+        <input type="text" id="fname" name="fname" class="bx" placeholder="First Name">
         <br><br>
         <label for="lname" class="lbl">Last name:</label>
-        <input type="text" id="lname" name="lname" class="bx" placeholder="Last Name"><br><br>$lname
+        <input type="text" id="lname" name="lname" class="bx" placeholder="Last Name"><br><br>
 
         
 
         <!--age-->
         <label for="age" class="lbl">Age (in digits):</label>
-        <input type="text" id="age" name="age" class="bx" min="0" max="100" placeholder="Age">$age
-        <br><br>
+        <input type="text" id="age" name="age" class="bx" min="0" max="100" placeholder="Age"><br><br>
 
         <!--Gender-->
         <p>Gender</p>
-        <input type="radio" name="male" id="male" class="btn">$male
+        <input type="radio" name="male" id="male" class="btn">
         <label for="male" class="lbl">Male</label>
-        <input type="radio" name="Female" id="Female" class="btn">$female
+        <input type="radio" name="Female" id="Female" class="btn">
         <label for="Female" class="lbl">Female</label>
         <input type="radio" name="Other" id="Other" class="btn">
         <label for="Other" class="lbl">Other</label><br><br>
