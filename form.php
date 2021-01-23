@@ -7,13 +7,18 @@
 </head>
 <body>
     <?php
-        $fname = $_POST['First name:'];
-        $lname = $_POST['Last name:'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $age = $_POST['age'];
+        $m = $_POST['gender'];    
+        $mail = $_POST['mail'];
+        $time = date('D/M/Y H:i:s');
         print("name: $fname $lname<br>");
-        // print("age: $age <br>");
-        // print("male: $male <br>");
-        // print("female: $female")
-
+        print("age: $age<br>");
+        print("gender: $m <br>");
+        print("mail: $mail");
+        print("submit time: $time")
+        
     ?>
 </body>
 </html>
