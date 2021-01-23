@@ -35,10 +35,10 @@
         <label for="edu" class="lbl">Education</label>
         <select name="edu" id="edu" class="bx">
             <option value="null" id= "null">[none]</option>
-            <option value="u10" id= "u10">10th</option>
-            <option value="u12" id= "u12">12th</option>
-            <option value="ug" id= "ug">Undergraduate degeree</option>
-            <option value="pg" id= "pg">Postgraduate degeree</option>
+            <option value="10th boards" id= "u10">10th</option>
+            <option value="12th boards" id= "u12">12th</option>
+            <option value="graduation" id= "ug">Undergraduate degeree</option>
+            <option value="post-graduation" id= "pg">Postgraduate degeree</option>
         </select>
         <br><br>
 
