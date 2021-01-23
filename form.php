@@ -7,8 +7,12 @@
 </head>
 <body>
     <?php
+        $fname = $_POST['First name:'];
+        $lname = $_POST['Last name:'];
         print("name: $fname $lname<br>");
-        print("age: $age <br>");
+        // print("age: $age <br>");
+        // print("male: $male <br>");
+        // print("female: $female")
 
     ?>
 </body>
