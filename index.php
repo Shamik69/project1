@@ -7,28 +7,33 @@
     <link rel="stylesheet" href="css/style0.css">
 </head>
 <body>
-    <form action="" name="test">
+    <form action="form.php" name="test" method="POST">
         <!--name-->
         <p>Name</p>
         <label for="fname" class="lbl">First name:</label>
-        <input type="text" id="fname" name="fname" class="bx" placeholder="First Name"><br><br>
+        <input type="text" id="fname" name="fname" class="bx" placeholder="First Name">$fname
+        <br><br>
         <label for="lname" class="lbl">Last name:</label>
-        <input type="text" id="lname" name="lname" class="bx" placeholder="Last Name"><br><br>
+        <input type="text" id="lname" name="lname" class="bx" placeholder="Last Name"><br><br>$lname
+
+        
 
         <!--age-->
-        <label for="fname" class="lbl">Age (in digits):</label>
-        <input type="text" id="age" name="fname" class="bx" min="0" max="100" placeholder="Age"><br><br>
+        <label for="age" class="lbl">Age (in digits):</label>
+        <input type="text" id="age" name="age" class="bx" min="0" max="100" placeholder="Age">$age
+        <br><br>
 
         <!--Gender-->
         <p>Gender</p>
-        <input type="radio" name="male" id="male" class="btn">
+        <input type="radio" name="male" id="male" class="btn">$male
         <label for="male" class="lbl">Male</label>
-        <input type="radio" name="Female" id="Female" class="btn">
+        <input type="radio" name="Female" id="Female" class="btn">$female
         <label for="Female" class="lbl">Female</label>
         <input type="radio" name="Other" id="Other" class="btn">
         <label for="Other" class="lbl">Other</label><br><br>
 
-        <!--Education-->
+        <!--
+        <!--Education
         <label for="edu" class="lbl">Education</label>
         <select name="edu" id="edu" class="bx">
             <option value="null" id= "null">[none]</option>
@@ -39,7 +44,7 @@
         </select>
         <br><br>
 
-        <!--Deegree type-->
+        <!--Deegree type
         <input type="checkbox" name="chk0" id="chk0">
         <label for="chk0" class="lbl">Persuing</label>
         <br>
@@ -47,7 +52,9 @@
         <label for="chk1" class="lbl">Completed</label>
         <br><br><br>
 
-        <!--Email-->
+        
+
+        <!--Email
         <label for="mail" class="lbl">Email address: </label>
         <input type="email" name="mail" id="mail" placeholder="E-mail" class="bx"><br><br>
 
@@ -60,6 +67,8 @@
         <!--Submit Button-->
         <input type="submit" value="Submit" id= "Submit">
     </form>
+    <!--
     <a href="http://localhost:81/project1/test-php.php">php exercises</a>
+    -->
 </body>
 </html>
