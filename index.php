@@ -12,8 +12,7 @@
         <p>Name</p>
         <label for="fname" class="lbl">First name:</label>
         <input type="text" id="fname" name="fname" class="bx" placeholder="First Name">
-        <br><br>
-        <label for="lname" class="lbl">Last name:</label>
+        <br><br><label for="lname" class="lbl">Last name:</label>
         <input type="text" id="lname" name="lname" class="bx" placeholder="Last Name"><br><br>
 
         
@@ -24,15 +23,15 @@
 
         <!--Gender-->
         <p>Gender</p>
-        <input type="radio" name="male" id="male" class="btn">
+        <input type="radio" name="gender" id="male" value="male">
         <label for="male" class="lbl">Male</label>
-        <input type="radio" name="Female" id="Female" class="btn">
-        <label for="Female" class="lbl">Female</label>
-        <input type="radio" name="Other" id="Other" class="btn">
-        <label for="Other" class="lbl">Other</label><br><br>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female" class="lbl">Female</label>
+        <input type="radio" name="gender" id="other" value="other">
+        <label for="other" class="lbl">Other</label><br><br>
 
-        <!--
-        <!--Education
+        
+        <!--Education-->
         <label for="edu" class="lbl">Education</label>
         <select name="edu" id="edu" class="bx">
             <option value="null" id= "null">[none]</option>
@@ -43,7 +42,7 @@
         </select>
         <br><br>
 
-        <!--Deegree type
+        <!--Degree type-->
         <input type="checkbox" name="chk0" id="chk0">
         <label for="chk0" class="lbl">Persuing</label>
         <br>
@@ -53,13 +52,13 @@
 
         
 
-        <!--Email
-        <label for="mail" class="lbl">Email address: </label>
+        <!--Email-->
+        <label for="mail" class="lbl">Email address:</label>
         <input type="email" name="mail" id="mail" placeholder="E-mail" class="bx"><br><br>
 
-        <!--file input
+        <!--file input-->
         <label for="file" class="lbl">Upload Your Marksheet Here</label><br>
-        <input type="file" name="file" id="file"><br><br>-->
+        <input type="file" name="file" id="file"><br><br>
 
         
 
