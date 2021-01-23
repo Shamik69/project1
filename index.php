@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Submit Your Information</title>
-    <link rel="stylesheet" href="css/style0.css">
+    <link rel="stylesheet" href="style0.css">
 </head>
 <body>
     <form action="form.php" name="test" method="POST">
@@ -43,11 +43,11 @@
         <br><br>
 
         <!--Degree type-->
-        <input type="checkbox" name="chk0" id="chk0">
-        <label for="chk0" class="lbl">Persuing</label>
+        <input type="checkbox" name="status" id="chk0" value="studying">
+        <label for="chk0" class="lbl">Studying</label>
         <br>
-        <input type="checkbox" name="chk1" id="chk1">
-        <label for="chk1" class="lbl">Completed</label>
+        <input type="checkbox" name="status" id="chk1" value="has a job">
+        <label for="chk1" class="lbl">Have a job</label>
         <br><br><br>
 
         
