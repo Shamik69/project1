@@ -5,7 +5,7 @@ body{
     margin-left: 20%;
 
 }
-p{
+p.para{
     color: darkcyan;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
@@ -39,4 +39,8 @@ br{
     color: #000000;
     position: absolute;
     left: 25%;
+}
+
+.btn{
+    padding-top: 5%;
 }
