@@ -3,4 +3,5 @@
     0: fix "edu_status,)" error,
     line-range: 35-47,
     looperror
+    make inject fn efficient
 }
