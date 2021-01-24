@@ -43,10 +43,10 @@
         <br><br>
 
         <!--Degree type-->
-        <input type="checkbox" name="status" id="chk0" value="studying">
+        <input type="checkbox" name="edu_status" id="chk0" value="studying">
         <label for="chk0" class="lbl">Studying</label>
         <br>
-        <input type="checkbox" name="status" id="chk1" value="has a job">
+        <input type="checkbox" name="edu_status" id="chk1" value="has a job">
         <label for="chk1" class="lbl">Have a job</label>
         <br><br><br>
 
@@ -56,9 +56,9 @@
         <label for="mail" class="lbl">Email address:</label>
         <input type="email" name="mail" id="mail" placeholder="E-mail" class="bx"><br><br>
 
-        <!--file input-->
+        <!--file input
         <label for="file" class="lbl">Upload Your Marksheet Here</label><br>
-        <input type="file" name="file" id="file"><br><br>
+        <input type="file" name="file" id="file"><br><br>-->
 
         
 
