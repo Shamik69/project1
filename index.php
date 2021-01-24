@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style0.css">
 </head>
 <body>
-    <form action="form.php" name="test" method="POST">
+    <form action="confirm.php" name="test" method="POST">
         <!--name-->
         <p>Name</p>
         <label for="fname" class="lbl">First name:</label>
