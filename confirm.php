@@ -20,10 +20,13 @@
                     }
                 }                        
             }
-            $fp= fopen('results.json', 'w');
-            fwrite($fp, json_encode($results));
-            fclose($fp);
+            $fp0= fopen('results.json', 'w');
+            fwrite($fp0, json_encode($results));
+            fclose($fp0);
             
+            $fp01= fopen('keys.json', 'w');
+            fwrite($fp01, json_encode(array_keys($results)));
+            fclose($fp01);
         ?>
         <input type="submit" value="Confirm" id= "Submit" class="btn">
         <a href="inddex.php">Resubmit</a>
