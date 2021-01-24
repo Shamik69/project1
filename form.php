@@ -8,9 +8,15 @@
 </head>
 <body>
     <?php
-        foreach($_POST as $result) {
+        $fp= fopen('results.json', 'r');
+        $json = fread($fp, filesize('results.json'));
+        fclose($fp);
+        echo gettype(json_decode($json));
+        /*
+        $results = json_decode($json);
+        foreach($results as $result) {
             if($result!=null){
-                $s = array_keys($_POST, $result);
+                $s = array_keys($results, $result);
                 if($s!=null){
                     foreach($s as $a){
                         echo "<b>$a:</b> <i class= cls>$result</i><br>";
@@ -18,7 +24,7 @@
                 }
             }                        
         }
-        
+        */
     ?>
 </body>
 </html>
