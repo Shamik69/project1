@@ -41,3 +41,20 @@ def testing(fname, lname, age, gender, edu, edu_status, mail):
     quit()
 
 
+def cleaning():
+    df= pd.read_csv("example_dataset.csv")
+    df= df[['First Name', 'Second Name', 'Age (in digits)', 'Gender', 'Level of Education', 'Are you looking for job?', 'Email']]
+    df.columns= ['fname', 'lname', 'age', 'gender', 'edu', 'edu_status', 'mail']
+    for i in ['age', 'gender', 'edu', 'edu_status']:
+        print(f'{i}:{df[i].unique()}\n')
+
+    df['gender']= df['gender'].map({'Female':'female', 'Male': 'male'})
+    df['edu']= df['edu'].map({"Bachelor's degree":'Undergrduate',
+                            'Pursuing masters degree': 'Postgraduate',
+                            "Master's degree": 'Postgraduate', 
+                            'Associate degree':'12th'})
+    df['edu_status']= df['edu_status'].fillna('Studying')
+    df['edu_status']= df['edu_status'].map({'No': 'Studying', 'Maybe': 'Studying', 'Yes': 'Have a job'})
+    df.to_csv('dataset.csv', index= False)
+
+df= pd.read_csv('dataset.csv')
