@@ -1,31 +1,43 @@
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+
+import pandas as pd
 
 import time
 
-driver = webdriver.Chrome(executable_path="C:/Users/User/PycharmProjects/comment_bot/executables/chromedriver.exe")
 
-driver.get("http://localhost:81/project1/")
-time.sleep(0.5)
+print('lol')
 
-driver.find_element_by_id('fname').send_keys('Shamik')
-
-driver.find_element_by_id('lname').send_keys('Pal')
-
-driver.find_element_by_id('age').send_keys('20')
-
-def click(element):
-    time.sleep(0.5)
-    webdriver.ActionChains(driver).click(element).perform()
+def testing(fname, lname, age, gender, edu, edu_status, mail):
+    driver = webdriver.Chrome(executable_path="C:/Users/User/PycharmProjects/comment_bot/executables/chromedriver.exe")
+    
+    driver.get("http://localhost:81/project1/")
     time.sleep(0.5)
 
+    driver.find_element_by_id('fname').send_keys(fname)
 
-driver.find_element_by_id('mail').send_keys('example@mail.com')
+    driver.find_element_by_id('lname').send_keys(lname)
 
-click(driver.find_element_by_id('male'))
-click(driver.find_element_by_id('Submit'))
+    driver.find_element_by_id('age').send_keys(age)
 
-time.sleep(5)
-driver.close()
-quit()
+    select = Select(driver.find_element_by_id('edu'))
+
+    # select by visible text
+    select.select_by_visible_text(edu)
+
+    def click(element):
+        time.sleep(0.5)
+        webdriver.ActionChains(driver).click(element).perform()
+        time.sleep(0.5)
+
+
+    driver.find_element_by_id('mail').send_keys(mail)
+
+    click(driver.find_element_by_id(gender))
+    click(driver.find_element_by_id('Submit'))
+
+    time.sleep(5)
+    driver.close()
+    quit()
 
 
