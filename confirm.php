@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>confirm your details</title>
+    <title>confirmation</title>
     <link rel="stylesheet" href="style0.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
             fwrite($fp01, json_encode(array_keys($results)));
             fclose($fp01);
         ?>
-        <input type="submit" value="Confirm" id= "Submit" class="btn">
+        <input type="submit" value="Confirm" id= "Confirm" class="btn">
         <a href="inddex.php">Resubmit</a>
     </form>
 </body>
