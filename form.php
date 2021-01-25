@@ -40,8 +40,8 @@
                         $values=  $values."'$results[$key]',";
                     }
                 }else{
+                    $cols= $cols."$key";
                     if($results[$key]==null){
-                        $cols= $cols."$key";
                         $values=  $values."'Unknown'";
                     }else{
                         $values=  $values."'$results[$key]'";
@@ -78,8 +78,7 @@
                 gender VARCHAR(10), 
                 edu VARCHAR(50), 
                 edu_status VARCHAR(50),
-                mail VARCHAR(50))
-                form VARCHAR(100)";
+                mail VARCHAR(50))";
             if (mysqli_query($conn, $create_table)) {
             echo "Table created successfully";
             data_inject($conn, $table);
