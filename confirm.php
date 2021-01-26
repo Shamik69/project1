@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,7 @@
 <body>
     <form action="form.php" name="test" method="POST">
         <?php
+            session_unset();
             $results = $_POST;
             foreach($results as $result) {
                 if($result!=null){
@@ -20,13 +24,8 @@
                     }
                 }                        
             }
-            $fp0= fopen('results.json', 'w');
-            fwrite($fp0, json_encode($results));
-            fclose($fp0);
-            
-            $fp01= fopen('keys.json', 'w');
-            fwrite($fp01, json_encode(array_keys($results)));
-            fclose($fp01);
+            $_SESSION['results'] = $results;
+            $_SESSION['keys'] = array_keys($results);
         ?>
         <input type="submit" value="Confirm" id= "Confirm" class="btn">
         <a href="inddex.php">Resubmit</a>
