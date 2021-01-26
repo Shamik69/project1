@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,16 +21,9 @@
             die("Connection failed: " . $conn->connect_error);
         }
         function data_inject($connention, $table){
-            $fp0 = fopen('keys.json', 'r');
-            $json0 = fread($fp0, filesize('results.json'));
-            fclose($fp0);
 
-            $fp1= fopen('results.json', 'r');
-            $json1 = fread($fp1, filesize('results.json'));
-            fclose($fp1);
-
-            $keys= json_decode($json0, true);
-            $results= json_decode($json1, true);
+            $keys= $_SESSION['keys'];
+            $results= $_SESSION['results'];
 
             $cols= "";
             $values= "";
@@ -90,11 +86,8 @@
             data_inject($conn, $table);
         }
 
-        $fp= fopen('results.json', 'r');
-        $json = fread($fp, filesize('results.json'));
-        fclose($fp);
-        //echo json_decode($json);
-        $results = json_decode($json, true);
+
+        $results = $_SESSION['results'];
         foreach($results as $result) {
             if($result!=null){
                 $s = array_keys($results, $result);
@@ -105,8 +98,10 @@
                 }
             }                        
         }
+        session_unset();
+        session_destroy();
     ?>
     <br><br>
-    <a href="index.php" class="cls">homepage</a>
+    <a href="index.php" class="cls" id="index">homepage</a>
 </body>
 </html>
