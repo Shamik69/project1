@@ -20,8 +20,6 @@ def click(element):
 def testing(fname, lname, age, gender, edu, edu_status, mail):
     driver.get("http://localhost:81/project1/")
 
-    time.sleep(0.5)
-
     driver.find_element_by_id('fname').send_keys(fname)
 
     driver.find_element_by_id('lname').send_keys(lname)
@@ -43,10 +41,7 @@ def testing(fname, lname, age, gender, edu, edu_status, mail):
     driver.find_element_by_id('mail').send_keys(mail)
 
     click(driver.find_element_by_id('Submit'))
-
-    time.sleep(0.5)
     click(driver.find_element_by_id('Confirm'))
-    time.sleep(2)
 
 
 def cleaning():
@@ -107,14 +102,16 @@ def entry_random(freq: int = 10, clear_db: bool = False):
                 edu_status=random.choice(['Have a job', 'Studying']),
                 mail=f"{uname}@{random.choice(['gmail', 'outlook', 'yahoo'])}.com")
 
-    
+uname = ''
+for j in range(random.randint(high=7, low=5)):
+    uname += random.choice(list(string.ascii_letters))    
 
-for x in False, True:
-    y = 10
-    if x:
-        y *= 2
-    entry_random(y, x)
+testing(fname='shamik',
+        lname='pal',
+        age=random.randint(high=50, low=10),
+        gender=random.choice(['male', 'female']),
+        edu=random.choice(
+                    ['10th', '12th', 'Undergraduate degree', 'Postgraduate degree']),
+        edu_status=random.choice(['Have a job', 'Studying']),
+        mail=f"{uname}@{random.choice(['gmail', 'outlook', 'yahoo'])}.com")
 
-driver.close()
-print('end code')
-quit()
