@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +14,13 @@
         $db_name= 'form';
         $table = "form_data";
         $conn = new mysqli($server, $u_name, $pwd);
+        $keys= array_keys($_POST);
+        $results= $_POST;
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        function data_inject($connention, $table){
-
-            $keys= $_SESSION['keys'];
-            $results= $_SESSION['results'];
-
+        function data_inject($connention, $table, $results){
+            $keys= array_keys($results);
             $cols= "";
             $values= "";
             foreach ($keys as $key) {
@@ -77,17 +73,14 @@
                 mail VARCHAR(50))";
             if (mysqli_query($conn, $create_table)) {
             echo "Table created successfully";
-            data_inject($conn, $table);
+            data_inject($conn, $table, $results);
             } else {
             echo "Error creating table: <br>" . $conn->error;
             }
             echo "<br>";
         } else{
-            data_inject($conn, $table);
+            data_inject($conn, $table, $results);
         }
-
-
-        $results = $_SESSION['results'];
         foreach($results as $result) {
             if($result!=null){
                 $s = array_keys($results, $result);
@@ -98,8 +91,6 @@
                 }
             }                        
         }
-        session_unset();
-        session_destroy();
     ?>
     <br><br>
     <a href="index.php" class="cls" id="index">homepage</a>
