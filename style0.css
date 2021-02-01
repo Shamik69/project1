@@ -2,7 +2,7 @@ body{
     background-color: #acd1f7;
     font-family: conoslas, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 5%;
-    margin-left: 20%;
+    margin-left: 10%;
 
 }
 p.para{
@@ -28,8 +28,8 @@ br{
 }
 
 .bx{
-    position: absolute;
-    left: 32%;
+    position: relative;
+    left: 5%;
     border: #164041 solid;
     border-radius: 5%;
 }
@@ -39,5 +39,10 @@ br{
     color: #000000;
     position: absolute;
     left: 40%;
+}
+
+.divs{
+    margin-left: 20%;
+    float: left;
 }
 
