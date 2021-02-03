@@ -106,12 +106,5 @@ uname = ''
 for j in range(random.randint(high=7, low=5)):
     uname += random.choice(list(string.ascii_letters))    
 
-testing(fname='shamik',
-        lname='pal',
-        age=random.randint(high=50, low=10),
-        gender=random.choice(['male', 'female']),
-        edu=random.choice(
-                    ['10th', '12th', 'Undergraduate degree', 'Postgraduate degree']),
-        edu_status=random.choice(['Have a job', 'Studying']),
-        mail=f"{uname}@{random.choice(['gmail', 'outlook', 'yahoo'])}.com")
-
+entry_random()
+driver.close()
