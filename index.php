@@ -83,6 +83,7 @@
                         }                        
                     }
                 }
+                $_POST = $results;
             ?>
             <input type="submit" value="Confirm" id= "Confirm" class="btn">
         </form>
