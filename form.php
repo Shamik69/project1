@@ -15,7 +15,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        function data_inject($connention, $table, $results){
+        function data_inject($connention, $table0, $results){
             $keys= array_keys($results);
             $cols= "";
             $values= "";
@@ -36,7 +36,7 @@
                     }
                 }
             }
-            $insert_qry= "INSERT INTO $table ($cols)\n
+            $insert_qry= "INSERT INTO $table0 ($cols)\n
                             VALUES ($values)";
             
             if ($connention->query($insert_qry) === TRUE) {
@@ -58,8 +58,8 @@
             $conn = new mysqli($server, $u_name, $pwd, $db_name);
         }
 
-        if(mysqli_query($conn, "SELECT * FROM $table")===false){
-            $create_table = "CREATE TABLE $table(
+        if(mysqli_query($conn, "SELECT * FROM $table0")===false){
+            $create_table = "CREATE TABLE $table0(
                 f_name VARCHAR(20),
                 l_name VARCHAR(20),
                 age INT,
@@ -69,13 +69,13 @@
                 mail VARCHAR(50))";
             if (mysqli_query($conn, $create_table)) {
             echo "Table created successfully";
-            data_inject($conn, $table, $results);
+            data_inject($conn, $table0, $results);
             } else {
             echo "Error creating table: <br>" . $conn->error;
             }
             echo "<br>";
         } else{
-            data_inject($conn, $table, $results);
+            data_inject($conn, $table0, $results);
         }
         foreach($results as $result) {
             if($result!=null){
