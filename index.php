@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style0.css">
 </head>
 <body>
-    <div id= "form" class="divs" >
-        <form name="test" method="POST" action= 'confirm.php'>
+    <div id= "form" class="divs">
+        <form name="test" method="POST">
             <!--name-->
             <p>Name</p>
             <label for="fname" class="lbl">First name:</label>
@@ -65,6 +65,42 @@
 
             <!--Submit Button-->
             <input type="submit" value="Submit" id= "Submit">
+        </form>
+    </div>
+    <div id= "confirmation" class="divs">
+        <form action="form.php" name="test" method="POST">
+            <?php
+            include 'credentials.php';
+            include 'db.php';
+            if(!empty($_POST)){
+                    $conn = new mysqli($server, $u_name, $pwd);
+                    $keys= array_keys($_POST);
+                    $results= $_POST;
+
+                    if ($conn-> select_db($db_name)===false){
+                        if (create_db($db_name, $conn) === TRUE) {
+                        echo "Database created successfully <br>";
+                        } else {
+                        echo "Error creating database: <br>" . $conn->error;
+                        }
+                    }
+                    
+                    $conn = new mysqli($server, $u_name, $pwd, $db_name);
+                    
+
+                    if(mysqli_query($conn, "SELECT * FROM $table1")===true){
+                        drop($conn, $table1);
+                    }
+                    
+                    if (create_table($table1, $conn)){
+                        data_inject($conn, $table1, $results);
+                        }
+                        echo "<br>";
+
+                    print_all($results);
+            }
+            ?>
+            <input type="submit" value="Confirm" id= "Confirm" class="btn">
         </form>
     </div>
     <!--
