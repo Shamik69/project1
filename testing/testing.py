@@ -42,7 +42,6 @@ def testing(fname, lname, age, gender, edu, edu_status, mail):
     driver.find_element_by_id('mail').send_keys(mail)
 
     click(driver.find_element_by_id('Submit'))
-    time.sleep(0.5)
     click(driver.find_element_by_id('Confirm'))
 
 
