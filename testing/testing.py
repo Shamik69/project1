@@ -8,7 +8,8 @@ import time
 
 print('lol')
 
-driver = webdriver.Chrome(executable_path="C:/Users/User/PycharmProjects/comment_bot/executables/chromedriver.exe")
+driver = webdriver.Chrome(
+    executable_path="C:/Users/User/PycharmProjects/comment_bot/executables/chromedriver.exe")
 
 
 def click(element):
@@ -41,6 +42,7 @@ def testing(fname, lname, age, gender, edu, edu_status, mail):
     driver.find_element_by_id('mail').send_keys(mail)
 
     click(driver.find_element_by_id('Submit'))
+    time.sleep(0.5)
     click(driver.find_element_by_id('Confirm'))
 
 
@@ -84,14 +86,14 @@ def entry_random(freq: int = 10, clear_db: bool = False):
 
     for i in range(freq):
         uname = ''
-        fname= f'f{i}'
-        lname= f'p{i}'
+        fname = f'f{i}'
+        lname = f'p{i}'
         for j in range(random.randint(high=7, low=5)):
             uname += random.choice(list(string.ascii_letters))
         for l in range(4):
             fname += random.choice(list(string.ascii_letters))
             lname += random.choice(list(string.ascii_letters))
-        
+
         print(f'loop:{i}, clear db: {clear_db}')
         testing(fname=fname,
                 lname=lname,
@@ -102,9 +104,19 @@ def entry_random(freq: int = 10, clear_db: bool = False):
                 edu_status=random.choice(['Have a job', 'Studying']),
                 mail=f"{uname}@{random.choice(['gmail', 'outlook', 'yahoo'])}.com")
 
-uname = ''
-for j in range(random.randint(high=7, low=5)):
-    uname += random.choice(list(string.ascii_letters))    
 
-entry_random()
-driver.close()
+def single_entry():
+    uname = ''
+    for j in range(random.randint(high=7, low=5)):
+        uname += random.choice(list(string.ascii_letters))
+    testing(fname='fname',
+            lname='lname',
+            age=random.randint(high=50, low=10),
+            gender=random.choice(['male', 'female']),
+            edu=random.choice(
+                ['10th', '12th', 'Undergraduate degree', 'Postgraduate degree']),
+            edu_status=random.choice(['Have a job', 'Studying']),
+            mail=f"{uname}@{random.choice(['gmail', 'outlook', 'yahoo'])}.com")
+
+
+single_entry()
