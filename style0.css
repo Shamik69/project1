@@ -37,8 +37,8 @@ br{
 .cls{
     font-family: conoslas, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #000000;
-    position: absolute;
-    left: 40%;
+    position: relative;
+    margin-left: 4%;
 }
 
 .divs{
