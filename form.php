@@ -8,11 +8,7 @@
 </head>
 <body>
     <?php
-        $server= "127.0.0.1";
-        $u_name = "Shamik";
-        $pwd = "shamikpal2000";
-        $db_name= 'form';
-        $table = "form_data";
+        include 'credentials.php';
         $conn = new mysqli($server, $u_name, $pwd);
         $keys= array_keys($_POST);
         $results= $_POST;
