@@ -60,3 +60,16 @@
         return false;
         }
     }
+
+    function print_all($array){
+        foreach($array as $element) {
+            if($element!=null){
+                $s = array_keys($array, $element);
+                if($s!=null){
+                    foreach($s as $a){
+                        echo "<b>$a:</b> <i class= cls>$element</i><br>";
+                    }
+                }
+            }                        
+        }
+    }
