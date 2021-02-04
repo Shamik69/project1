@@ -5,4 +5,3 @@
         $db_name= 'form';
         $table0 = "form_data";
         $table1 = 'temp';
-?>
