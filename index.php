@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style0.css">
 </head>
 <body>
-    <div id= "form" class="divs">
+    <div id= "form" class="divs" action= >
         <form name="test" method="POST">
             <!--name-->
             <p>Name</p>
@@ -65,27 +65,6 @@
 
             <!--Submit Button-->
             <input type="submit" value="Submit" id= "Submit">
-        </form>
-    </div>
-    <div id= "confirmation" class="divs">
-        <form action="form.php" name="test" method="POST">
-            <?php
-                if(!empty($_POST)){
-                    $results = $_REQUEST;
-                    foreach($results as $result) {
-                        if($result!=null){
-                            $s = array_keys($results, $result);
-                            if($s!=null){
-                                foreach($s as $a){
-                                    echo "<b>$a:</b> <i>$result</i><br>";
-                                }
-                            }
-                        }                        
-                    }
-                }
-                $_POST = $results;
-            ?>
-            <input type="submit" value="Confirm" id= "Confirm" class="btn">
         </form>
     </div>
     <!--
