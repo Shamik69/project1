@@ -38,6 +38,7 @@
             print_all($results);
         ?>
         <input type="submit" value="Confirm" id= "Confirm" class="btn">
+        <a href="index.php" id="resubmit">Resubmit</a>
     </form>
 </body>
 </html>
