@@ -35,8 +35,8 @@
         } else{
             data_inject($conn, $table0, $results);
         }
-        
         print_all($results);
+        drop($conn, $table1);
     ?>
     <br><br>
     <a href="index.php" class="cls" id="index">homepage</a>
