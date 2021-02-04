@@ -7,22 +7,18 @@
 </head>
 <body>
     <?php
-            $server= "127.0.0.1";
-            $u_name = "Shamik";
-            $pwd = "shamikpal2000";
-            $db_name= 'form';
-            $table = "form_data";
+            include 'C:\xampp\htdocs\project1\credentials.php';
             $conn = new mysqli($server, $u_name, $pwd, $db_name);
             if ($conn->connect_error) {
                 echo "connection error<br>";
                 die("Connection failed: " . $conn->connect_error);
             }
             
-            if(mysqli_query($conn, "SELECT * FROM $table")===false){
+            if(mysqli_query($conn, "SELECT * FROM $table1")===false){
                 echo "<br>";
                 echo "something is fishy<br> $conn->error";
             }else{
-                $drop_table = "DROP TABLE $table";
+                $drop_table = "DROP TABLE $table1";
                 if (mysqli_query($conn, $drop_table)) {
                 echo "Table dropped successfully";
                 } else {
