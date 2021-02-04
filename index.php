@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style0.css">
 </head>
 <body>
-    <div id= "form" class="divs" action= >
-        <form name="test" method="POST">
+    <div id= "form" class="divs" >
+        <form name="test" method="POST" action= 'confirm.php'>
             <!--name-->
             <p>Name</p>
             <label for="fname" class="lbl">First name:</label>
