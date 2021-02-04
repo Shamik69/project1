@@ -12,17 +12,30 @@
 <body>
     <form action="form.php" name="test" method="POST">
         <?php
-            $results = $_POST;
-            foreach($results as $result) {
-                if($result!=null){
-                    $s = array_keys($results, $result);
-                    if($s!=null){
-                        foreach($s as $a){
-                            echo "<b>$a:</b> <i class= cls>$result</i><br>";
-                        }
-                    }
-                }                        
+            include 'credentials.php';
+            include 'db.php';
+            $conn = new mysqli($server, $u_name, $pwd);
+            $keys= array_keys($_POST);
+            $results= $_POST;
+
+            if ($conn-> select_db($db_name)===false){
+                if (create_db($db_name, $conn) === TRUE) {
+                echo "Database created successfully <br>";
+                } else {
+                echo "Error creating database: <br>" . $conn->error;
+                }
             }
+            
+            $conn = new mysqli($server, $u_name, $pwd, $db_name);
+
+            if(mysqli_query($conn, "SELECT * FROM $table1")===false){
+                if (create_table($table1, $conn)){
+                data_inject($conn, $table1, $results);
+                }
+                echo "<br>";
+            }
+
+            print_all($results);
         ?>
         <input type="submit" value="Confirm" id= "Confirm" class="btn">
     </form>
