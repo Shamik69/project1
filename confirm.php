@@ -12,7 +12,6 @@
 <body>
     <form action="form.php" name="test" method="POST">
         <?php
-            session_unset();
             $results = $_POST;
             foreach($results as $result) {
                 if($result!=null){
@@ -24,11 +23,8 @@
                     }
                 }                        
             }
-            $_SESSION['results'] = $results;
-            $_SESSION['keys'] = array_keys($results);
         ?>
         <input type="submit" value="Confirm" id= "Confirm" class="btn">
-        <a href="inddex.php">Resubmit</a>
     </form>
 </body>
 </html>
