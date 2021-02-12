@@ -42,7 +42,7 @@ br{
 }
 
 .divs{
-    margin-left: 20%;
+    position: relative;
     float: left;
 }
 
