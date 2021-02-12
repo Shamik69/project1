@@ -1,7 +1,6 @@
 <?php
-    function data_inject($connention, $table, $results){
+    function data_inject($connention, $table, $results, $keys){
         // if table already exists
-        $keys= array_keys($results);
         $cols= "";
         $values= "";
         foreach ($keys as $key) {
@@ -45,14 +44,45 @@
 
     function create_table($table_name, $conn){
         $create_table = "CREATE TABLE $table_name(
+            id INT AUTO_INCREMENT,
             f_name VARCHAR(20),
             l_name VARCHAR(20),
             age INT,
             gender VARCHAR(10), 
             edu VARCHAR(50), 
             edu_status VARCHAR(50),
-            mail VARCHAR(50))";
+            mail VARCHAR(50),
+            PRIMARY KEY (id))";
         if (mysqli_query($conn, $create_table)) {
+        echo "Table created successfully";
+        return true;
+        } else {
+        echo "Error creating table: <br>" . $conn->error;
+        return false;
+        }
+    }
+
+    function update_table($table_name, $conn, $data){
+        $qry= "UPDATE $table_name \nSET";
+        $count= 0;
+        $keys= array_keys($data);
+        foreach ($keys as $key) {
+            $count+=1;
+            $sep= ',';
+            // echo ($count);
+            // echo count($keys);
+            if($count- count($keys)==0){
+                $sep= "";
+            }
+            $qry= "$qry $key = '$data[$key]'$sep";
+        }
+
+        $qry= "$qry\nWHERE id= 1;";
+        
+        // echo $qry;
+
+        
+        if (mysqli_query($conn, $qry)) {
         echo "Table created successfully";
         return true;
         } else {
@@ -86,4 +116,20 @@
             echo "Error creating table: <br>" . $conn->error;
             }
         }
+    }
+
+    function write_json($fname, $array)
+    {
+        $fp= fopen("$fname", "w");
+        fwrite($fp, json_encode(array_keys($array)));
+        fclose($fp);
+    }
+
+    function read_json($fname)
+    {
+        $fp= fopen("$fname", "w");
+        $f= fread($fp, filesize($fname));
+        $array= json_decode($f, true);
+        return $array;
+        fclose($fp);
     }
