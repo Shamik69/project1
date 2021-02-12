@@ -10,7 +10,7 @@ print('lol')
 
 driver = webdriver.Chrome(
     executable_path="C:/Users/User/PycharmProjects/comment_bot/executables/chromedriver.exe")
-
+driver.maximize_window()
 
 def click(element):
     time.sleep(0.5)
