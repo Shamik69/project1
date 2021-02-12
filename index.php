@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Submit Your Information</title>
     <link rel="stylesheet" href="style0.css">
 </head>
+
 <body>
-    <div id= "form" class="divs">
+    <div id="form" class="divs">
         <form name="test" method="POST">
             <!--name-->
             <p>Name</p>
@@ -16,7 +18,7 @@
             <br><br><label for="lname" class="lbl">Last name:</label>
             <input type="text" id="lname" name="l_name" class="bx" placeholder="Last Name"><br><br>
 
-            
+
 
             <!--age-->
             <label for="age" class="lbl">Age (in digits):</label>
@@ -31,15 +33,15 @@
             <input type="radio" name="gender" id="other" value="other">
             <label for="other" class="lbl">Other</label><br><br>
 
-            
+
             <!--Education-->
             <label for="edu" class="lbl">Education</label>
             <select name="edu" id="edu" class="bx">
-                <option value="null" id= "null">[none]</option>
-                <option value="10th boards" id= "u10">10th</option>
-                <option value="12th boards" id= "u12">12th</option>
-                <option value="graduation" id= "ug">Undergraduate degree</option>
-                <option value="post-graduation" id= "pg">Postgraduate degree</option>
+                <option value="null" id="null">[none]</option>
+                <option value="10th boards" id="u10">10th</option>
+                <option value="12th boards" id="u12">12th</option>
+                <option value="graduation" id="ug">Undergraduate degree</option>
+                <option value="post-graduation" id="pg">Postgraduate degree</option>
             </select>
             <br><br>
 
@@ -51,7 +53,7 @@
             <label for="chk1" class="lbl">Have a job</label>
             <br><br><br>
 
-            
+
 
             <!--Email-->
             <label for="mail" class="lbl">Email address:</label>
@@ -61,21 +63,22 @@
             <label for="file" class="lbl">Upload Your Marksheet Here</label><br>
             <input type="file" name="file" id="file"><br><br>-->
 
-            
+
 
             <!--Submit Button-->
-            <input type="submit" value="Submit" id= "Submit">
+            <input type="submit" value="Submit" id="Submit">
         </form>
     </div>
-    <div id= "confirmation" class="divs">
-        <form action="form.php" name="test" method="POST">
-            <?php
+    <div id="confirmation" class="divs">
+        <?php
             include 'credentials.php';
             include 'db.php';
             if(!empty($_POST)){
                     $conn = new mysqli($server, $u_name, $pwd);
                     $keys= array_keys($_POST);
                     $results= $_POST;
+
+                    write_json("keys.json", $results);
 
                     if ($conn-> select_db($db_name)===false){
                         if (create_db($db_name, $conn) === TRUE) {
@@ -88,22 +91,19 @@
                     $conn = new mysqli($server, $u_name, $pwd, $db_name);
                     
 
-                    if(mysqli_query($conn, "SELECT * FROM $table1")===true){
-                        drop($conn, $table1);
-                        create_table($table1, $conn);
-                        data_inject($conn, $table1, $results);
-                    }else{
-                        if (create_table($table1, $conn)){
-                            data_inject($conn, $table1, $results);
-                            }
-                            echo "<br>";
-                    }
+                    if (create_table($table1, $conn)){
+                            data_inject($conn, $table1, $results, $keys
+                        );
+                        }else {
+                            update_table($table1, $conn, $results);
+                        }
+                    echo "<br>";
 
                     print_all($results);
             }
             ?>
-            <input type="submit" value="Confirm" id= "Confirm" class="btn">
-        </form>
+        <a href="form.php" id="Confirm">Confirm</a>
     </div>
 </body>
+
 </html>
