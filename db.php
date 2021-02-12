@@ -127,7 +127,7 @@
 
     function read_json($fname)
     {
-        $fp= fopen("$fname", "w");
+        $fp= fopen("$fname", "r");
         $f= fread($fp, filesize($fname));
         $array= json_decode($f, true);
         return $array;
