@@ -125,11 +125,45 @@
         fclose($fp);
     }
 
-    function read_json($fname)
-    {
+    function read_json($fname){
         $fp= fopen("$fname", "r");
         $f= fread($fp, filesize($fname));
         $array= json_decode($f, true);
         return $array;
         fclose($fp);
+    }
+
+    function keys_write($array, $conn){
+        $keys= array_keys($array);
+        print_r($array);
+        $qry_keys= "";
+        $qry_values= "";
+        $create_qry= "";
+        for ($i=0; $i < count($keys); $i++){
+            $sep= ",";
+            if ($i === count($keys)-1){
+                $sep= "";
+            }
+            $qry_keys= $qry_keys." key$i$sep";
+            $qry_values= $qry_values." $keys[$i]$sep";
+            $create_qry= $create_qry."key$i= VARCHAR(20)$sep";
+
+        }
+
+        if (mysqli_query($conn, "CREATE TABLE keys($create_qry)")) {
+            mysqli_query($conn, "DROP TABLE keys");
+        }
+
+        mysqli_query($conn, "CREATE TABLE keys($create_qry)");
+        mysqli_query($conn, "INSERT INTO keys ($qry_keys)\n
+                                VALUES ($qry_values)");
+        
+    }
+
+
+    function keys_read($conn){
+        $qry= "SELECT * FROM keys";
+        $array= mysqli_fetch_array(mysqli_query($conn, $qry), MYSQLI_ASSOC);
+        mysqli_query($conn, "DROP TABLE keys");
+        return $array;
     }
