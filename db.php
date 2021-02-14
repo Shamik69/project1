@@ -67,7 +67,7 @@
                 $s = array_keys($array, $element);
                 if($s!=null){
                     foreach($s as $a){
-                        echo "<b>$a:</b> <i>$element</i><br>";
+                        echo "<b>$a:</b> <i class= cls>$element</i><br>";
                     }
                 }
             }                        
