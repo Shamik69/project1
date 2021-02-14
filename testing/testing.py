@@ -42,7 +42,7 @@ def testing(fname, lname, age, gender, edu, edu_status, mail):
     driver.find_element_by_id('mail').send_keys(mail)
 
     click(driver.find_element_by_id('Submit'))
-    # click(driver.find_element_by_id('Confirm'))
+    click(driver.find_element_by_id('Confirm'))
 
 
 def cleaning():
