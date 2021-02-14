@@ -42,17 +42,20 @@
             }
     }
 
-    function create_table($table_name, $conn){
-        $create_table = "CREATE TABLE $table_name(
-            id INT AUTO_INCREMENT,
+    function create_table($table_name, $conn, $id= true){
+        $create_table = "CREATE TABLE $table_name(";
+        if ($id) {
+            $create_table= $create_table."id INT AUTO_INCREMENT,
+                                          PRIMARY KEY (id)";
+        }
+        $create_table= $create_table."   
             f_name VARCHAR(20),
             l_name VARCHAR(20),
             age INT,
             gender VARCHAR(10), 
             edu VARCHAR(50), 
             edu_status VARCHAR(50),
-            mail VARCHAR(50),
-            PRIMARY KEY (id))";
+            mail VARCHAR(50))";
         if (mysqli_query($conn, $create_table)) {
         echo "Table created successfully";
         return true;
@@ -135,28 +138,43 @@
 
     function keys_write($array, $conn){
         $keys= array_keys($array);
-        print_r($array);
+        print_r($keys);
+        $ltrs= range('a', 'z');
+        // print_r($array);
         $qry_keys= "";
         $qry_values= "";
         $create_qry= "";
         for ($i=0; $i < count($keys); $i++){
-            $sep= ",";
+            $sep= ",\n";
             if ($i === count($keys)-1){
                 $sep= "";
             }
-            $qry_keys= $qry_keys." key$i$sep";
-            $qry_values= $qry_values." $keys[$i]$sep";
-            $create_qry= $create_qry."key$i= VARCHAR(20)$sep";
+            $qry_keys= $qry_keys."key_$ltrs[$i]$sep";
+            $qry_values= $qry_values."$keys[$i]$sep";
+            $create_qry= $create_qry."key_$ltrs[$i] VARCHAR(20)$sep";
 
         }
 
-        if (mysqli_query($conn, "CREATE TABLE keys($create_qry)")) {
-            mysqli_query($conn, "DROP TABLE keys");
+        if (mysqli_query($conn, "SELECT * FROM keys")){
+            echo "keys table already exists<br>";
+            if( mysqli_query($conn, "DROP TABLE keys")){
+                echo "dropped table keys<br>";
+           }else {
+               echo "error dropping keys $conn->error<br>";
+           }
         }
 
-        mysqli_query($conn, "CREATE TABLE keys($create_qry)");
-        mysqli_query($conn, "INSERT INTO keys ($qry_keys)\n
-                                VALUES ($qry_values)");
+        echo "CREATE TABLE `keys`($create_qry)<br><br>";
+        if(mysqli_query($conn, "CREATE TABLE `keys`($create_qry)")){
+            echo "table created successfully<br>";
+        }else {
+            echo "error creating table $conn->error<br>";
+        }
+        if(mysqli_query($conn, "INSERT INTO `keys` ($qry_keys)\nVALUES ($qry_values)")){
+            echo "insereted data successfully<br>";
+        }else {
+            echo "error in inserting data $conn->error<br>";
+        }
         
     }
 
@@ -165,5 +183,5 @@
         $qry= "SELECT * FROM keys";
         $array= mysqli_fetch_array(mysqli_query($conn, $qry), MYSQLI_ASSOC);
         mysqli_query($conn, "DROP TABLE keys");
-        return $array;
+        return array($array);
     }

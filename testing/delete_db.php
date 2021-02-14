@@ -16,11 +16,11 @@
                 die("Connection failed: " . $conn->connect_error);
             }
             
-            if(mysqli_query($conn, "SELECT * FROM keys")===false){
+            if(mysqli_query($conn, "SELECT * FROM temp")===false){
                 echo "<br>";
                 echo "something is fishy<br> $conn->error";
             }else{
-                $drop_table = "DROP TABLE keys";
+                $drop_table = "DROP TABLE temp";
                 if (mysqli_query($conn, $drop_table)) {
                 echo "Table dropped successfully";
                 } else {

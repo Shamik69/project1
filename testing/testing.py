@@ -5,6 +5,7 @@ import pandas as pd
 from numpy import random
 import time
 
+t0= time.time()
 
 print('lol')
 
@@ -119,3 +120,4 @@ def single_entry():
 
 
 single_entry()
+print(time.time()- t0)

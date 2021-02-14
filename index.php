@@ -87,15 +87,15 @@
                     }
                     
                     $conn = new mysqli($server, $u_name, $pwd, $db_name);
-                    
-                    keys_write($results, $conn);
-                    if (!create_table($table1, $conn)){
-                            data_inject($conn, $table1, $results, $keys);
-                        }else {
-                            update_table($table1, $conn, $results);
-                        }
-                    echo "<br>";
 
+                    if(mysqli_query($conn, "SELECT * FROM $table1")){
+                        update_table($table1, $conn, $results);
+                    }else{
+                        create_table($table1, $conn, false);
+                        data_inject($conn, $table1, $results, $keys);
+                    }
+
+                    echo "<br>";
                     print_all($results);
             }
             ?>
