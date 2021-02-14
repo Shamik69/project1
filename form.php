@@ -28,7 +28,7 @@
 
         $qry= "SELECT * FROM $table1";
         $results= mysqli_fetch_array(mysqli_query($conn, $qry), MYSQLI_ASSOC);
-        $keys= keys_read("$conn");
+        $keys= read_json("keys.json");
         if(mysqli_query($conn, "SELECT * FROM $table0")===false){
             if (create_table($table0, $conn)){
             data_inject($conn, $table0, $results, $keys);
