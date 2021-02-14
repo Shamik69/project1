@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form data</title>
     <link rel="stylesheet" href="style0.css">
 </head>
-
 <body>
     <?php
         include 'credentials.php';
@@ -28,14 +26,14 @@
 
         $qry= "SELECT * FROM $table1";
         $results= mysqli_fetch_array(mysqli_query($conn, $qry), MYSQLI_ASSOC);
-        $keys= read_json("keys.json");
+        
         if(mysqli_query($conn, "SELECT * FROM $table0")===false){
             if (create_table($table0, $conn)){
-            data_inject($conn, $table0, $results, $keys);
+            data_inject($conn, $table0, $results);
             }
             echo "<br>";
         } else{
-            data_inject($conn, $table0, $results, $keys);
+            data_inject($conn, $table0, $results);
         }
         print_all($results);
         drop($conn, $table1);
@@ -43,5 +41,4 @@
     <br><br>
     <a href="index.php" class="cls" id="index">homepage</a>
 </body>
-
 </html>
