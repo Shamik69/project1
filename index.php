@@ -78,6 +78,8 @@
                     $keys= array_keys($_POST);
                     $results= $_POST;
 
+                    write_json("keys.json", $results);
+
                     if ($conn-> select_db($db_name)===false){
                         if (create_db($db_name, $conn) === TRUE) {
                         echo "Database created successfully <br>";
@@ -88,9 +90,10 @@
                     
                     $conn = new mysqli($server, $u_name, $pwd, $db_name);
                     
-                    keys_write($results, $conn);
-                    if (!create_table($table1, $conn)){
-                            data_inject($conn, $table1, $results, $keys);
+
+                    if (create_table($table1, $conn)){
+                            data_inject($conn, $table1, $results, $keys
+                        );
                         }else {
                             update_table($table1, $conn, $results);
                         }
