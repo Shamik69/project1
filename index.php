@@ -90,14 +90,12 @@
 
                     if(mysqli_query($conn, "SELECT * FROM $table1")===true){
                         drop($conn, $table1);
-                        create_table($table1, $conn);
-                        data_inject($conn, $table1, $results);
-                    }else{
-                        if (create_table($table1, $conn)){
-                            data_inject($conn, $table1, $results);
-                            }
-                            echo "<br>";
                     }
+                    
+                    if (create_table($table1, $conn)){
+                        data_inject($conn, $table1, $results);
+                        }
+                        echo "<br>";
 
                     print_all($results);
             }
@@ -105,5 +103,8 @@
             <input type="submit" value="Confirm" id= "Confirm" class="btn">
         </form>
     </div>
+    <!--
+    <a href="http://localhost:81/project1/test-php.php">php exercises</a>
+    -->
 </body>
 </html>
