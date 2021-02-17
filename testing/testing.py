@@ -18,6 +18,12 @@ def click(element):
     time.sleep(0.5)
 
 
+def str_gen(high: int, low: int):
+    str0 = ''
+    for j in range(random.randint(high=high, low=low)):
+        str0 += random.choice(list(string.ascii_letters))
+    return str0
+
 def testing(fname, lname, age, gender, edu, edu_status, mail):
     driver.get("http://localhost:81/project1/")
 
@@ -105,17 +111,14 @@ def entry_random(freq: int = 10, clear_db: bool = False):
 
 
 def single_entry():
-    uname = ''
-    for j in range(random.randint(high=7, low=5)):
-        uname += random.choice(list(string.ascii_letters))
-    testing(fname='fname',
-            lname='lname',
+    testing(fname=str_gen(high=7, low=5),
+            lname=str_gen(high=7, low=5),
             age=random.randint(high=50, low=10),
             gender=random.choice(['male', 'female']),
             edu=random.choice(
                 ['10th', '12th', 'Undergraduate degree', 'Postgraduate degree']),
             edu_status=random.choice(['Have a job', 'Studying']),
-            mail=f"{uname}@{random.choice(['gmail', 'outlook', 'yahoo'])}.com")
+            mail=f"{str_gen(high= 7, low= 5)}@{str_gen(high= 10, low= 4)}.com")
 
 
 single_entry()

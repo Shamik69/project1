@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <?php
             include 'C:\xampp\htdocs\project1\credentials.php';
@@ -13,12 +15,12 @@
                 echo "connection error<br>";
                 die("Connection failed: " . $conn->connect_error);
             }
-            
-            if(mysqli_query($conn, "SELECT * FROM $table1")===false){
+            $table= "`keys`";
+            if(mysqli_query($conn, "SELECT * FROM $table")===false){
                 echo "<br>";
                 echo "something is fishy<br> $conn->error";
             }else{
-                $drop_table = "DROP TABLE $table1";
+                $drop_table = "DROP TABLE $table";
                 if (mysqli_query($conn, $drop_table)) {
                 echo "Table dropped successfully";
                 } else {
@@ -28,4 +30,5 @@
             }
     ?>
 </body>
+
 </html>
