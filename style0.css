@@ -46,3 +46,10 @@ br{
     float: left;
 }
 
+p.error{
+    color: #740000;
+    background-color: #abd1f7;
+    font-style: italic;
+    margin-bottom: 0.5%;
+    padding-bottom: 0.5%;
+}
