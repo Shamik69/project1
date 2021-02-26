@@ -6,31 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Submit Your Information</title>
     <link rel="stylesheet" href="style0.css">
-    <script type="text/javascript" src="script.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+    <script language="JavaScript" src="script0.js"></script>
 </head>
 
 <body>
     <div id="form" class="divs">
         <form name="test" method="POST" onsubmit="return form_validation()">
             <!--name-->
-            <p>Name</p>
+            <p class="head">Name</p>
             <p id='para'></p>
             <label for="fname" class="lbl">First name:</label>
-            <input type="text" id="fname" name="f_name" class="bx" placeholder="First Name" onfocusout="fName()">
+            <input type="text" id="fname" name="f_name" class="bx" placeholder="First Name" onfocusout='fName()'>
             <p id="fname_err" class="error"></p>
             <br><br><label for="lname" class="lbl">Last name:</label>
-            <input type="text" id="lname" name="l_name" class="bx" placeholder="Last Name" onfocusout="lName()">
-            <p id="lname_err" class="error"></p><br>
+            <input type="text" id="lname" name="l_name" class="bx" placeholder="Last Name" onfocusout='lName()'>
+            <p id="lname_err" class="error"></p><br><br>
 
 
 
             <!--age-->
             <label for="age" class="lbl">Age (in digits):</label>
-            <input type="text" id="age" name="age" class="bx" min="0" max="100" placeholder="Age" onfocusout="age()">
+            <input type="text" id="age" name="age" class="bx" min="0" max="100" placeholder="Age" onfocusout='Age()'>
             <p id="age_err" class="error"></p><br>
 
             <!--Gender-->
-            <p>Gender</p>
+            <p class="head">Gender</p>
             <input type="radio" name="gender" id="male" value="male">
             <label for="male" class="lbl">Male</label>
             <input type="radio" name="gender" id="female" value="female">
@@ -40,6 +44,7 @@
 
 
             <!--Education-->
+            <p class="head">Academics and Career</p>
             <label for="edu" class="lbl">Education</label>
             <select name="edu" id="edu" class="bx">
                 <option value="null" id="null">[none]</option>
@@ -61,11 +66,12 @@
 
 
             <!--Email-->
+            <p class="head">Contact</p>
             <label for="mail" class="lbl">Email address:</label>
             <input type="email" name="mail" id="mail" placeholder="E-mail" class="bx"><br><br>
 
-            <label for="phn_no" class="lbl">phone number:</label>
-            <input type="text" id="phn_no" name="phn_no" class="bx" placeholder="phone number" onfocusout="phn()">
+            <label for="phn_no" class="lbl">Phone number:</label>
+            <input type="text" id="phn_no" name="phn_no" class="bx" placeholder="Phone number"  onfocusout='Phn()'>
             <p id="phn_err" class="error"></p><br><br>
 
             <!--file input
@@ -78,6 +84,7 @@
             <input type="submit" value="Submit" id="Submit">
         </form>
     </div>
+    <!--
     <div>
         <?php
             include 'credentials.php';
@@ -109,7 +116,6 @@
         ?>
         <a href="form.php" id="Confirm">Confirm</a>
     </div>
-    <!--
     <a href="http://localhost:81/project1/test-php.php">php exercises</a>
     -->
 </body>

@@ -41,7 +41,7 @@ document.addEventListener('keypress', function (event) {
 });
 
 function focusChange(inputType, inputLen, id, err_id) {
-    // checks if a box contains only specifies charecters of specified length
+    // checks if a box contains only specific charecters of specific length
     var input = document.getElementById(id).value;
 
     if (inputType == "text") {
@@ -51,7 +51,7 @@ function focusChange(inputType, inputLen, id, err_id) {
             document.getElementById("Submit").disabled = true;
         }
         else {
-            if (inputtxt.value.match(/^[A-Za-z]+$/)) {
+            if (!/[^a-zA-Z]/.test(input)) {
                 document.getElementById(err_id).innerHTML = '';
                 document.getElementById("Submit").disabled = false;
             } else {
@@ -79,12 +79,27 @@ function focusChange(inputType, inputLen, id, err_id) {
             output = 'Please use' + inputLen + ' charechters in ' + document.activeElement.id;
             document.getElementById(err_id).innerHTML = output;
         }
-        document.getElementById('para').innerHTML = typeof (2);
+        
     }
+    document.getElementById('para').innerHTML = input;
 }
 
 function fName() {
-    focusChange(inputType = 'text', inputLen = 15, id = 'fname', err_id = 'fname_err');
+    if (input.length == 0) {
+        output = id + " can't be blank";
+        document.getElementById(err_id).innerHTML = output;
+        document.getElementById("Submit").disabled = true;
+    }
+    else {
+        if (inputtxt.value.match(/^[A-Za-z]+$/)) {
+            document.getElementById(err_id).innerHTML = '';
+            document.getElementById("Submit").disabled = false;
+        } else {
+            output = 'Please use alphabets only in ' + id;
+            document.getElementById(err_id).innerHTML = output;
+            document.getElementById("Submit").disabled = true;
+        }
+    }
 }
 
 function lName() {
