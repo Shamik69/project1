@@ -12,11 +12,13 @@ p.para{
 }
 
 .lbl{
+    position: relative;
     text-align: center;
     color:#133e3f;
     font-family: consolas, 'Courier New', Courier, monospace;
     height: 5px;
     pointer-events: none;
+    margin-left: 5%;
 
 }
 

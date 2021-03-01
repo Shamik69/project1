@@ -51,7 +51,8 @@
             gender VARCHAR(10), 
             edu VARCHAR(50), 
             edu_status VARCHAR(50),
-            mail VARCHAR(50))";
+            mail VARCHAR(50),
+            phn_mo INT)";
         if (mysqli_query($conn, $create_table)) {
         echo "Table created successfully";
         return true;

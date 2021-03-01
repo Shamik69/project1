@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta name="viewport" content="width=device-width, initial-scale=0.05">
     <title>Submit Your Information</title>
     <link rel="stylesheet" href="style0.css">
     <script
@@ -15,14 +15,14 @@
 
 <body>
     <div id="form" class="divs">
-        <form name="test" method="POST" onsubmit="return form_validation()">
+        <form name="test" method="POST">
             <!--name-->
             <p class="head">Name</p>
             <p id='para'></p>
             <label for="fname" class="lbl">First name:</label>
-            <input type="text" id="fname" name="f_name" class="bx" placeholder="First Name" onfocusout='fName()'>
+            <input type="text" id="fname" name="f_name" class="bx" placeholder="First Name" onfocusout='fName()'><br><br>
             <p id="fname_err" class="error"></p>
-            <br><br><label for="lname" class="lbl">Last name:</label>
+            <label for="lname" class="lbl">Last name:</label>
             <input type="text" id="lname" name="l_name" class="bx" placeholder="Last Name" onfocusout='lName()'>
             <p id="lname_err" class="error"></p><br><br>
 
@@ -47,7 +47,7 @@
             <p class="head">Academics and Career</p>
             <label for="edu" class="lbl">Education</label>
             <select name="edu" id="edu" class="bx">
-                <option value="null" id="null">[none]</option>
+                <option value="" id="null">[none]</option>
                 <option value="10th boards" id="u10">10th</option>
                 <option value="12th boards" id="u12">12th</option>
                 <option value="graduation" id="ug">Undergraduate degree</option>
@@ -61,7 +61,7 @@
             <br>
             <input type="checkbox" name="edu_status" id="chk1" value="has a job">
             <label for="chk1" class="lbl">Have a job</label>
-            <br><br><br>
+            <br><br>
 
 
 
@@ -70,9 +70,9 @@
             <label for="mail" class="lbl">Email address:</label>
             <input type="email" name="mail" id="mail" placeholder="E-mail" class="bx"><br><br>
 
-            <label for="phn_no" class="lbl">Phone number:</label>
-            <input type="text" id="phn_no" name="phn_no" class="bx" placeholder="Phone number"  onfocusout='Phn()'>
-            <p id="phn_err" class="error"></p><br><br>
+            <label for="phn" class="lbl">Phone number:</label>
+            <input type="text" id="phn" name="phn_no" class="bx" placeholder="Phone number"  onfocusout='Phn()'>
+            <p id="phn_err" class="error"></p><br>
 
             <!--file input
             <label for="file" class="lbl">Upload Your Marksheet Here</label><br>
@@ -84,38 +84,11 @@
             <input type="submit" value="Submit" id="Submit">
         </form>
     </div>
-    <!--
     <div>
-        <?php
-            include 'credentials.php';
-            include 'db.php';
-            if(!empty($_POST)){
-                $conn = new mysqli($server, $u_name, $pwd);
-                $keys= array_keys($_POST);
-                $results= $_POST;
-
-                if ($conn-> select_db($db_name)===false){
-                    if (create_db($db_name, $conn) === TRUE) {
-                    echo "Database created successfully <br>";
-                    } else {
-                    echo "Error creating database: <br>" . $conn->error;
-                    }
-                }
-                
-                $conn = new mysqli($server, $u_name, $pwd, $db_name);
-
-                if(mysqli_query($conn, "SELECT * FROM $table1")===false){
-                    if (create_table($table1, $conn)){
-                    data_inject($conn, $table1, $results);
-                    }
-                    echo "<br>";
-                }
-
-                print_all($results);
-            }
-        ?>
-        <a href="form.php" id="Confirm">Confirm</a>
+        
     </div>
+    <!--
+        <a href="form.php" id="Confirm">Confirm</a>
     <a href="http://localhost:81/project1/test-php.php">php exercises</a>
     -->
 </body>
