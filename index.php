@@ -15,7 +15,7 @@
 
 <body>
     <div id="input" class="divs">
-        <form name="test" method="POST" onsubmit='bal(); return false;' id= 'form'>
+        <form name="test" method="POST" onsubmit='onSubmit(); return false;' id= 'form'>
             <!--name-->
             <p class="head">Name</p>
             <p id='para'></p>

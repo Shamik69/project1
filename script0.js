@@ -48,38 +48,39 @@ $(document).ready(function () {
             document.getElementById('Submit').disabled= true;
         }
     });
-$('#positive').on('click', function () {
-    $('#confirm').hide();
-    $.ajax({
-        method: 'post',
-        data: $('#form').serialize(),
-        url:'ajax/positive.php',
-        success:function (response) {
-            $('#posiDiv').show();
-            $('#posiDiv').html('thanks');
-            console.log(response);
-        }
+    $('#positive').on('click', function () {
+        $('#confirm').hide();
+        $('#negaDiv').hide();
+        $.ajax({
+            method: 'post',
+            data: $('#form').serialize(),
+            url:'ajax/positive.php',
+            success:function (response) {
+                $('#posiDiv').show();
+                $('#posiDiv').html('thanks');
+                console.log(response);
+            }
+        });
+
+        return true;
     });
 
-    return true;
-});
+    $('#negative').on('click', function () {
+        $('#confirm').hide();
+        $('#posiDiv').hide();
+        $.ajax({
+            method: 'post',
+            data: $('#form').serialize(),
+            url:'ajax/negative.php',
+            success:function (response) {
+                $('#negaDiv').show();
+                $('#negaDiv').html('Could you please resubmit the form?');
+                console.log(response);
+            }
+        });
 
-$('#negative').on('click', function () {
-    $('#confirm').hide();
-    
-    $.ajax({
-        method: 'post',
-        data: $('#form').serialize(),
-        url:'ajax/negative.php',
-        success:function (response) {
-            $('#negaDiv').show();
-            $('#negaDiv').html('Could you please resubmit the form?');
-            console.log(response);
-        }
+        return true;
     });
-
-    return true;
-});
 
 });
 
@@ -172,7 +173,7 @@ function eleName(eleId) {
 }
 
 
-function bal() {
+function onSubmit() {
         /*
     error code
     0: empty input
@@ -180,6 +181,8 @@ function bal() {
 
     */
     $("#p").show();
+    $('#posiDiv').hide();
+    $('#negaDiv').hide();
     $.ajax({
         method: 'post',
         data: $('#form').serialize(),
