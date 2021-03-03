@@ -47,8 +47,12 @@ def testing(fname, lname, age, gender, edu, edu_status, mail):
 
     driver.find_element_by_id('mail').send_keys(mail)
 
+    driver.find_element_by_id('phn').send_keys(
+        ''.join([str(random.randint(low=0, high=10, size=1))
+                 for i in range(10)]))
+
     click(driver.find_element_by_id('Submit'))
-    click(driver.find_element_by_id('Confirm'))
+    # click(driver.find_element_by_id('Confirm'))
 
 
 def cleaning():

@@ -25,9 +25,9 @@
                         VALUES ($values)";
         
         if ($connention->query($insert_qry) === TRUE) {
-            echo "New record created successfully<br>";
+            // echo "New record created successfully<br>";
           } else {
-            echo "Error: " . $insert_qry . "<br>" . $connention->error. "<br>";
+            // echo "Error: " . $insert_qry . "<br>" . $connention->error. "<br>";
           }
     }
 
@@ -35,10 +35,10 @@
     function create_db($db_name, $conn){
         $create_db = "CREATE DATABASE $db_name";
             if ($conn->query($create_db) === TRUE) {
-            echo "Database created successfully <br>";
+            // echo "Database created successfully <br>";
             return true;
             } else {
-            echo "Error creating database: <br>" . $conn->error;
+            // echo "Error creating database: <br>" . $conn->error;
             return false;
             }
     }
@@ -52,12 +52,12 @@
             edu VARCHAR(50), 
             edu_status VARCHAR(50),
             mail VARCHAR(50),
-            phn_mo INT)";
+            phn_no INT)";
         if (mysqli_query($conn, $create_table)) {
-        echo "Table created successfully";
+        // echo "Table created successfully";
         return true;
         } else {
-        echo "Error creating table: <br>" . $conn->error;
+        // echo "Error creating table: <br>" . $conn->error;
         return false;
         }
     }
@@ -68,7 +68,7 @@
                 $s = array_keys($array, $element);
                 if($s!=null){
                     foreach($s as $a){
-                        echo "<b>$a:</b> <i class= cls>$element</i><br>";
+                        // echo "<b>$a:</b> <i class= cls>$element</i><br>";
                     }
                 }
             }                        
@@ -77,14 +77,14 @@
 
     function drop($conn, $table){
         if(mysqli_query($conn, "SELECT * FROM $table")===false){
-            echo "<br>";
-            echo "something is fishy<br> $conn->error";
+            // echo "<br>";
+            // echo "something is fishy<br> $conn->error";
         }else{
             $drop_table = "DROP TABLE $table";
             if (mysqli_query($conn, $drop_table)) {
-            echo "Table dropped successfully";
+            // echo "Table dropped successfully";
             } else {
-            echo "Error creating table: <br>" . $conn->error;
+            // echo "Error creating table: <br>" . $conn->error;
             }
         }
     }

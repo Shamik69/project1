@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <div id="form" class="divs">
-        <form name="test" method="POST">
+    <div id="input" class="divs">
+        <form name="test" method="POST" onsubmit='bal(); return false;' id= 'form'>
             <!--name-->
             <p class="head">Name</p>
             <p id='para'></p>
@@ -84,13 +84,22 @@
             <input type="submit" value="Submit" id="Submit">
         </form>
     </div>
-    <div>
-        
+    <div id= 'confirm'>
+        <p>Is this corect?</p>
+        <table id= 'table' class= 'table'>
+            <!-- from js script -->
+        </table>
+        <input type="button" value="Yeah, I think so" id= 'positive'>
+        <br>
+        <input type="button" value="You think so?" id= 'negative'>
     </div>
-    <!--
-        <a href="form.php" id="Confirm">Confirm</a>
-    <a href="http://localhost:81/project1/test-php.php">php exercises</a>
-    -->
+    <div id= 'posiDiv'>
+
+    </div>
+
+    <div id='negaDiv'>
+    
+    </div>
 </body>
 
 </html>

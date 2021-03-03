@@ -12,7 +12,6 @@ p.para{
 }
 
 .lbl{
-    position: relative;
     text-align: center;
     color:#133e3f;
     font-family: consolas, 'Courier New', Courier, monospace;
@@ -50,4 +49,11 @@ p.error{
     font-weight: 500;
     color: #1a1818;
     padding-left: 1%;
+}
+
+.table{
+    height: 5%;
+    width: 15%;
+    border: solid .05rem;
+    border-collapse: collapse;
 }
